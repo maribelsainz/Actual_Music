@@ -4,9 +4,20 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
+
+<script>
+import { conexionApi } from "./config/conexionApi";
+export default {
+  name: "App",
+  mounted() {
+    console.log("Funciona mounted");
+    conexionApi();
+  },
+};
+</script>
 
 <style lang="scss">
 #app {
