@@ -5,11 +5,25 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    marca: 'Actual Music',
+    listaArtistas: [],
+  },
+  getters: {
+    getMarca(state) {
+      return state.marca;
+    },
+    envioArtistas(state) {
+      return state.listaArtistas;
+    }
   },
   mutations: {
+    mutandoInfoArtista(state, infoArtistaRecibido) {
+      state.listaArtistas = infoArtistaRecibido;
+    }
   },
   actions: {
-  },
-  modules: {
+    recibidoInfoArtista(context, infoArtista) {
+      context.commit('mutandoInfoArtista', infoArtista);
+    },
   }
 })
